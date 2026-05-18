@@ -60,7 +60,7 @@ const routes: RouteRecordRaw[] = [
     meta: { title: '资讯中心', icon: 'notification', requiresAuth: true }
   },
   {
-    path: '/chat',
+    path: '/chat/:sessionId?',
     name: 'Chat',
     component: () => import('@/views/chat/ChatView.vue'),
     meta: { title: '智能对话', icon: 'chat', requiresAuth: true }
@@ -103,7 +103,9 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: '/memory',
-    redirect: '/portfolio'
+    name: 'Memory',
+    component: () => import('@/views/memory/MemoryView.vue'),
+    meta: { title: '用户记忆', icon: 'brain', requiresAuth: true }
   },
   {
     path: '/datamanage',
@@ -198,6 +200,13 @@ const routes: RouteRecordRaw[] = [
     name: 'ArenaStrategyDetail',
     component: () => import('@/views/arena/ArenaStrategyDetail.vue'),
     meta: { title: '策略详情', requiresAuth: true }
+  },
+  // Decision Dashboard
+  {
+    path: '/decision',
+    name: 'DecisionDashboard',
+    component: () => import('@/views/decision/DecisionDashboard.vue'),
+    meta: { title: '决策看板', icon: 'chart-analytics', requiresAuth: true }
   },
   // Quant model routes
   {
